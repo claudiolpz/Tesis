@@ -1,0 +1,850 @@
+version: "3"
+
+services:
+  simulated-annealing-joa:
+    build: .
+    tty: true
+    stdin_open: true
+    image: simulated-annealing-joa
+    container_name: simulated-annealing-joa
+    volumes:
+      - ./simulated-annealing-joa:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f simulated-annealing-joa.log &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> simulated-annealing-joa.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+
+  abstaylor:
+    build: .
+    tty: true
+    stdin_open: true
+    image: abstaylor
+    container_name: abstaylor
+    volumes:
+      - ./abstaylor:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f abstaylor.log &&
+      echo 'Empezando ejecucion' &&
+      files=(        
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> abstaylor.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+
+  particle-swarp-optimization30:
+    build: .
+    tty: true
+    stdin_open: true
+    image: particle-swarp-optimization30
+    container_name: particle-swarp-optimization30
+    volumes:
+      - ./particle-swarp-optimization30:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f particle-swarp-optimization30.log &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> particle-swarp-optimization30.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+
+  particle-swarp-optimization30a:
+    build: .
+    tty: true
+    stdin_open: true
+    image: particle-swarp-optimization30a
+    container_name: particle-swarp-optimization30a
+    volumes:
+      - ./particle-swarp-optimization30a:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f particle-swarp-optimization30a.log &&
+      ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+      ./waf install &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> particle-swarp-optimization30a.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+
+  particle-swarp-optimization50:
+    build: .
+    tty: true
+    stdin_open: true
+    image: particle-swarp-optimization50
+    container_name: particle-swarp-optimization50
+    volumes:
+      - ./particle-swarp-optimization50:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f particle-swarp-optimization50.log &&
+      ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+      ./waf install &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> particle-swarp-optimization50.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          
+  particle-swarp-optimization70:
+    build: .
+    tty: true
+    stdin_open: true
+    image: particle-swarp-optimization70
+    container_name: particle-swarp-optimization70
+    volumes:
+      - ./particle-swarp-optimization70:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f particle-swarp-optimization70.log &&
+      ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+      ./waf install &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> particle-swarp-optimization70.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+        
+  hybrid-sa-pso30:
+    build: .
+    tty: true
+    stdin_open: true
+    image: hybrid-sa-pso30
+    container_name: hybrid-sa-pso30
+    volumes:
+      - ./hybrid-sa-pso30:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f hybrid-sa-pso30.log &&
+      ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+      ./waf install &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> hybrid-sa-pso30.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+
+  hybrid-sa-pso50:
+    build: .
+    tty: true
+    stdin_open: true
+    image: hybrid-sa-pso50
+    container_name: hybrid-sa-pso50
+    volumes:
+      - ./hybrid-sa-pso50:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f hybrid-sa-pso50.log &&
+      ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+      ./waf install &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> hybrid-sa-pso50.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+
+  hybrid-sa-pso70:
+    build: .
+    tty: true
+    stdin_open: true
+    image: hybrid-sa-pso70
+    container_name: hybrid-sa-pso70
+    volumes:
+      - ./hybrid-sa-pso70:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f hybrid-sa-pso70.log &&
+      ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+      ./waf install &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> hybrid-sa-pso70.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+
+  particle-swarp-optimization30-5it:
+      build: .
+      tty: true
+      stdin_open: true
+      image: particle-swarp-optimization30-5it
+      container_name: particle-swarp-optimization30-5it
+      volumes:
+        - ./particle-swarp-optimization30-5it:/app
+      command: >
+        bash -c "cd /app &&
+        rm -f particle-swarp-optimization30-5it.log &&
+        ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+        ./waf install &&
+        echo 'Empezando ejecucion' &&
+        files=(
+          'benchs/optim/hard/chem.bch'
+          'benchs/optim/hard/chem-1.bch'
+          'benchs/optim/hard/chembis.bch'
+          'benchs/optim/hard/ex6_1_3.bch'
+          'benchs/optim/hard/ex6_2_10.bch'
+          'benchs/optim/hard/ex8_5_1bis.bch'
+          'benchs/optim/hard/sambal.bch'
+          'benchs/optim/medium/ex6_2_6.bch'
+          'benchs/optim/medium/ex6_2_8.bch'
+          'benchs/optim/medium/ex6_2_9.bch'
+          'benchs/optim/medium/ex6_2_12.bch'
+          'benchs/optim/medium/ex8_4_4bis.bch'
+          'benchs/optim/medium/ex14_2_7.bch'
+          'benchs/optim/medium/ex6_1_3bis.bch'
+          'benchs/optim/medium/ex2_1_9.bch'
+          'benchs/optim/medium/himmel16.bch'
+          'benchs/optim/medium/ex2_1_7.bch'
+          'benchs/optim/medium/ex2_1_8.bch'
+          'benchs/optim/medium/launch.bch'
+          'benchs/optim/with10valorless/hs088'
+          'benchs/optim/with10valorless/hs093'
+          'benchs/optim/with10valorless/hs102'
+          'benchs/optim/with10valorless/hs103'
+          'benchs/optim/with10valorless/hs108'
+          'benchs/optim/with10valorless/hs113'
+          'benchs/optim/with10valorless/dualc5'
+          'benchs/optim/with10valorless/dualc8'
+          'benchs/optim/with10valorless/mistake'
+          'benchs/optim/with10valorless/odfits'
+          'benchs/optim/blowup/ex2_1_9bis.bch'
+        ) &&
+        for file in \$${files[@]}; do
+          for i in {1..5}; do
+            ./__build__/src/ibexopt \$$file --random-seed=\$$i >> particle-swarp-optimization30-5it.log
+          done
+        done &&
+        echo 'Ejecución completada'"
+      deploy:
+        resources:
+          limits:
+            cpus: "1.0"
+      
+  particle-swarp-optimization50-5it:
+      build: .
+      tty: true
+      stdin_open: true
+      image: particle-swarp-optimization50-5it
+      container_name: particle-swarp-optimization50-5it
+      volumes:
+        - ./particle-swarp-optimization50-5it:/app
+      command: >
+        bash -c "cd /app &&
+        rm -f particle-swarp-optimization50-5it.log &&
+        ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+        ./waf install &&
+        echo 'Empezando ejecucion' &&
+        files=(
+          'benchs/optim/hard/chem.bch'
+          'benchs/optim/hard/chem-1.bch'
+          'benchs/optim/hard/chembis.bch'
+          'benchs/optim/hard/ex6_1_3.bch'
+          'benchs/optim/hard/ex6_2_10.bch'
+          'benchs/optim/hard/ex8_5_1bis.bch'
+          'benchs/optim/hard/sambal.bch'
+          'benchs/optim/medium/ex6_2_6.bch'
+          'benchs/optim/medium/ex6_2_8.bch'
+          'benchs/optim/medium/ex6_2_9.bch'
+          'benchs/optim/medium/ex6_2_12.bch'
+          'benchs/optim/medium/ex8_4_4bis.bch'
+          'benchs/optim/medium/ex14_2_7.bch'
+          'benchs/optim/medium/ex6_1_3bis.bch'
+          'benchs/optim/medium/ex2_1_9.bch'
+          'benchs/optim/medium/himmel16.bch'
+          'benchs/optim/medium/ex2_1_7.bch'
+          'benchs/optim/medium/ex2_1_8.bch'
+          'benchs/optim/medium/launch.bch'
+          'benchs/optim/with10valorless/hs088'
+          'benchs/optim/with10valorless/hs093'
+          'benchs/optim/with10valorless/hs102'
+          'benchs/optim/with10valorless/hs103'
+          'benchs/optim/with10valorless/hs108'
+          'benchs/optim/with10valorless/hs113'
+          'benchs/optim/with10valorless/dualc5'
+          'benchs/optim/with10valorless/dualc8'
+          'benchs/optim/with10valorless/mistake'
+          'benchs/optim/with10valorless/odfits'
+          'benchs/optim/blowup/ex2_1_9bis.bch'
+        ) &&
+        for file in \$${files[@]}; do
+          for i in {1..5}; do
+            ./__build__/src/ibexopt \$$file --random-seed=\$$i >> particle-swarp-optimization50-5it.log
+          done
+        done &&
+        echo 'Ejecución completada'"
+      deploy:
+        resources:
+          limits:
+            cpus: "1.0"
+  particle-swarp-optimization70-5it:
+      build: .
+      tty: true
+      stdin_open: true
+      image: particle-swarp-optimization70-5it
+      container_name: particle-swarp-optimization70-5it
+      volumes:
+        - ./particle-swarp-optimization70-5it:/app
+      command: >
+        bash -c "cd /app &&
+        rm -f particle-swarp-optimization70-5it.log &&
+        ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+        ./waf install &&
+        echo 'Empezando ejecucion' &&
+        files=(
+          'benchs/optim/hard/chem.bch'
+          'benchs/optim/hard/chem-1.bch'
+          'benchs/optim/hard/chembis.bch'
+          'benchs/optim/hard/ex6_1_3.bch'
+          'benchs/optim/hard/ex6_2_10.bch'
+          'benchs/optim/hard/ex8_5_1bis.bch'
+          'benchs/optim/hard/sambal.bch'
+          'benchs/optim/medium/ex6_2_6.bch'
+          'benchs/optim/medium/ex6_2_8.bch'
+          'benchs/optim/medium/ex6_2_9.bch'
+          'benchs/optim/medium/ex6_2_12.bch'
+          'benchs/optim/medium/ex8_4_4bis.bch'
+          'benchs/optim/medium/ex14_2_7.bch'
+          'benchs/optim/medium/ex6_1_3bis.bch'
+          'benchs/optim/medium/ex2_1_9.bch'
+          'benchs/optim/medium/himmel16.bch'
+          'benchs/optim/medium/ex2_1_7.bch'
+          'benchs/optim/medium/ex2_1_8.bch'
+          'benchs/optim/medium/launch.bch'
+          'benchs/optim/with10valorless/hs088'
+          'benchs/optim/with10valorless/hs093'
+          'benchs/optim/with10valorless/hs102'
+          'benchs/optim/with10valorless/hs103'
+          'benchs/optim/with10valorless/hs108'
+          'benchs/optim/with10valorless/hs113'
+          'benchs/optim/with10valorless/dualc5'
+          'benchs/optim/with10valorless/dualc8'
+          'benchs/optim/with10valorless/mistake'
+          'benchs/optim/with10valorless/odfits'
+          'benchs/optim/blowup/ex2_1_9bis.bch'
+        ) &&
+        for file in \$${files[@]}; do
+          for i in {1..5}; do
+            ./__build__/src/ibexopt \$$file --random-seed=\$$i >> particle-swarp-optimization70-5it.log
+          done
+        done &&
+        echo 'Ejecución completada'"
+      deploy:
+        resources:
+          limits:
+            cpus: "1.0"
+
+  hybrid-sa-pso30-5it:
+    build: .
+    tty: true
+    stdin_open: true
+    image: hybrid-sa-pso30-5it
+    container_name: hybrid-sa-pso30-5it
+    volumes:
+      - ./hybrid-sa-pso30-5it:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f hybrid-sa-pso30-5it.log &&
+      ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+      ./waf install &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> hybrid-sa-pso30-5it.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+
+  hybrid-sa-pso50-5it:
+    build: .
+    tty: true
+    stdin_open: true
+    image: hybrid-sa-pso50-5it
+    container_name: hybrid-sa-pso50-5it
+    volumes:
+      - ./hybrid-sa-pso50-5it:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f hybrid-sa-pso50-5it.log &&
+      ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+      ./waf install &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> hybrid-sa-pso50-5it.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+    
+  hybrid-sa-pso70-5it:
+    build: .
+    tty: true
+    stdin_open: true
+    image: hybrid-sa-pso70-5it
+    container_name: hybrid-sa-pso70-5it
+    volumes:
+      - ./hybrid-sa-pso70-5it:/app
+    command: >
+      bash -c "cd /app &&
+      rm -f hybrid-sa-pso70-5it.log &&
+      ./waf configure --lp-lib=soplex --interval-lib=gaol &&
+      ./waf install &&
+      echo 'Empezando ejecucion' &&
+      files=(
+        'benchs/optim/hard/chem.bch'
+        'benchs/optim/hard/chem-1.bch'
+        'benchs/optim/hard/chembis.bch'
+        'benchs/optim/hard/ex6_1_3.bch'
+        'benchs/optim/hard/ex6_2_10.bch'
+        'benchs/optim/hard/ex8_5_1bis.bch'
+        'benchs/optim/hard/sambal.bch'
+        'benchs/optim/medium/ex6_2_6.bch'
+        'benchs/optim/medium/ex6_2_8.bch'
+        'benchs/optim/medium/ex6_2_9.bch'
+        'benchs/optim/medium/ex6_2_12.bch'
+        'benchs/optim/medium/ex8_4_4bis.bch'
+        'benchs/optim/medium/ex14_2_7.bch'
+        'benchs/optim/medium/ex6_1_3bis.bch'
+        'benchs/optim/medium/ex2_1_9.bch'
+        'benchs/optim/medium/himmel16.bch'
+        'benchs/optim/medium/ex2_1_7.bch'
+        'benchs/optim/medium/ex2_1_8.bch'
+        'benchs/optim/medium/launch.bch'
+        'benchs/optim/with10valorless/hs088'
+        'benchs/optim/with10valorless/hs093'
+        'benchs/optim/with10valorless/hs102'
+        'benchs/optim/with10valorless/hs103'
+        'benchs/optim/with10valorless/hs108'
+        'benchs/optim/with10valorless/hs113'
+        'benchs/optim/with10valorless/dualc5'
+        'benchs/optim/with10valorless/dualc8'
+        'benchs/optim/with10valorless/mistake'
+        'benchs/optim/with10valorless/odfits'
+        'benchs/optim/blowup/ex2_1_9bis.bch'
+      ) &&
+      for file in \$${files[@]}; do
+        for i in {1..5}; do
+          ./__build__/src/ibexopt \$$file --random-seed=\$$i >> hybrid-sa-pso70-5it.log
+        done
+      done &&
+      echo 'Ejecución completada'"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
