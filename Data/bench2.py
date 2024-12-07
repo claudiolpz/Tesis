@@ -82,7 +82,7 @@ for sheet_name, df in zip(['Tiempos', 'Nodos'], [df_times, df_nodes]):
 # Close the Pandas Excel writer and output the Excel file.
 writer.close()
 
-print("Data saved to combined_averages.xlsx")
+print("Data saved to combined_averages2.xlsx")
 
 #docker-compose up simulated-annealing simulated-annealing-joa hill-climbing abstaylor -d --build
 #docker-compose up hill-climbing-parallel -d --build
