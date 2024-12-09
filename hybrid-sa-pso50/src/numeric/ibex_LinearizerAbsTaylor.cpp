@@ -69,7 +69,7 @@ int LinearizerAbsTaylor::linear_restrict(const IntervalVector& box) {
 	}
     else if (point == SA_PSO) {
 		try {
-        	ibex::SA_PSO sa_pso(box, sys, 50, 20, 115.0, 0.92, 0.0042);
+        	ibex::SA_PSO sa_pso(box, sys, 50, 20, 115.0, 0.92, 0.0042); // box, sys, particulas, iteraciones maximas, temp_inicial, cooling, temp_min
             sa_pso.optimize();
             exp_point = sa_pso.gbest_position.mid();
         } catch (const std::exception& e) {
