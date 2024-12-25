@@ -15,8 +15,6 @@ Este README explica cómo configurar y ejecutar los diversos servicios de algori
    ```
    unzip simulated-annealing-joa.zip
    unzip abstaylor.zip
-   unzip hill-climbing-parallel.zip
-   unzip simulated-annealing-joa-parallel.zip
    unzip particle-swarp-optimization30.zip
    unzip particle-swarp-optimization50.zip
    unzip particle-swarp-optimization70.zip
